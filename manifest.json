@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "name": "font whell",
     "version": "0.0.1",
+    "author": "jjorge-a",
     "description": "changes fonts on websites to pleaseant fonts",
     "content_scripts": [
         {
