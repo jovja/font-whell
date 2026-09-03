@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "font whell",
+    "version": "0.0.1",
+    "description": "changes fonts on websites to pleaseant fonts",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["out.json"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
