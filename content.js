@@ -8,27 +8,27 @@
 
 // this is basically schizophrenia simulator you will probably think you are crazy
 
-// TODO MAKE CHANGES CHANGEABLE WITH A FEW NUMBERS
-/*
+// nothing chance
+const nothing_chance = 65
+const wnothing = 65
+
 // mode 1 ("weird font for a website") chances
-const mode1_upper = 
-const mode1_lower = 
+const mode1_chance = 15
+const wmode1 = mode1_chance + wnothing
 
 // mode 2 ("is something wrong with google?") chances
-const mode2_upper = 
-const mode2_lower = 
+const mode2_chance = 10
+const wmode2 = mode2_chance + wmode1
 
 // mode 3 ("whathef") chances
-const mode2_upper = 
-const mode2_lower = 
+const mode3_chance = 5
+const wmode3 = mode3_chance + wmode2
 
 // mode 4 ("it was just there I swear!"/"max schizophrenia"/"coincidence I think NOT! - some teacher") chances
-const mode2_upper = 
-const mode2_lower = 
-*/
+const mode4_chance = 5
+const wmode4 = mode4_chance + wmode3
 
-// define random (this does not change anything the bounds are the ones that count)
-const rnd = 100
+const total = nothing_chance + mode1_chance + mode2_chance + mode3_chance + mode4_chance
 
 // first get the fonts/unicode
 async function getFonts() {
@@ -44,16 +44,18 @@ elements.forEach(el => {
   });
 
 // get a random number
-const mode_choice = Math.floor(Math.random() * rnd);
+const mode_choice = Math.floor(Math.random() * total);
 
 // now execute the whole script after having the fonts data
 getFonts().then(fonts => {
     console.log(fonts.fonts);
 
     // code that needs fonts goes here
-
+    if (mode_choice < wnothing) {
+        return;
+    }
     // change whole font
-    if (mode_choice >= 65 && mode_choice <= 79) {
+    else if (mode_choice <= wmode1) {
         // get random font
         const troll_font = fonts.fonts[Math.floor(Math.random() * 77)]
 
@@ -76,7 +78,7 @@ getFonts().then(fonts => {
     }
 
     // change every element font
-    if (mode_choice >= 80 && mode_choice <= 89) {
+    else if (mode_choice <= wmode2) {
         elements.forEach(el => {
             const original = el.textContent;
             let result = "";
@@ -100,7 +102,7 @@ getFonts().then(fonts => {
 
 
     // if whathef mode change all mixing unicode
-    if (mode_choice >= 90 && mode_choice <= 94) {
+    else if (mode_choice <= wmode3) {
         elements.forEach(el => {
             const original = el.textContent;
             let result = "";
@@ -122,7 +124,7 @@ getFonts().then(fonts => {
     }
 
     // if chaos mode change unicode as well
-    if (mode_choice >= 95 && mode_choice <= 100) {
+    else if (mode_choice <= wmode4) {
         let scrollTimeoutId = null;
 
         // 1. scramble immediately on scroll
