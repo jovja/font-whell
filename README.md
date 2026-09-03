@@ -6,8 +6,11 @@ For some parts of this project built in a afternoon AI was used mostly to explai
 
 # Future Features
 Include a way to change probabilities in a single place (done)
+
 Include a GUI to change the probabilities more easily (in progress)
+
 Publish them on the chrome, opera, firefox and yes even edge
+
 
 # Apology
 If for some reason this was found on your computer I am so sorry to have had this idea I will forever repent knowing that my work was used to troll you.
